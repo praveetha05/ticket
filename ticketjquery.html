@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container-fluid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 600px;
+            height: 400px;
+            margin-top: 2%;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <h3 class="text-center">Executive $190</h3>
+    <div id="container" class="container-fluid"></div>
+    <p class="text-center fw-bold fs-1">Total: $0</p>
+    <center>
+        <button class="btn-primary">Book tickets</button>
+    </center>
+
+    <script>
+        $(document).ready(function(){
+            let contain = $("#container");
+            let arr = ["seat_image-removebg-preview.png"]; 
+            for (let i = 0; i < 88; i++) {
+                let img = $("<img>").addClass("seat");
+                img.attr("src", arr[0]);
+                contain.append(img); 
+            }
+
+            let seats = $(".seat");
+            let count = 0;
+            let para = $("p");
+
+           
+            seats.click(function(){
+                let seat = $(this);
+
+              
+                if (seat.css("background-color") == "rgb(255, 0, 0)") {
+                    seat.css("background-color", ""); 
+                    count -= 190; 
+                } else {
+                    seat.css("background-color", "red");  
+                    count += 190;  
+
+                }
+                para.text("Total: $" + count);
+            
+            });
+        });
+    </script>
+</body>
+</html>

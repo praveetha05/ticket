@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container-fluid{
+            display: flex;
+            gap: 1px;
+            flex-direction: row;
+            width: 800px;
+            flex-wrap: wrap;
+            margin-top: 2%;
+            width: 600px;
+            height: 400px;
+           
+        }
+        img{
+            width: 50px;
+            height: 50px;
+        }
+
+
+
+        #first{
+           display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+      
+    </style>
+</head>
+<body>
+    <h3 class="text-center">EXECUTIVE:$190</h3>
+    <script>
+        
+
+        let arr=["seat_image-removebg-preview.png","seat_image-removebg-preview.png"]
+        let container=document.createElement("div")
+
+         container.classList.add("container-fluid")
+        for(i=0;i<88;i++){
+           
+            let img=document.createElement("img")
+            img.classList.add("seat")
+            
+            let bindex=Math.floor(Math.random()*2)
+            img.src=arr[bindex]
+
+            container.appendChild(img)
+
+            document.body.appendChild(container)
+        }
+</script>
+<p class="my-5 text-center fw-bold fs-1">
+
+</p>
+<center>
+<a href="confirmed.html">
+    <button class="btn-primary">Book Tickets</button>
+</a>
+</center>
+<script>
+        let seats=document.querySelectorAll(".seat")
+    let para=document.querySelectorAll("p")
+    let btn=document.querySelectorAll("button")
+    let count=0;
+    
+    for( let i=0;i<seats.length;i++){
+
+        btn[0].style.visibility="hidden"
+
+        seats[i].addEventListener("click",()=>{
+
+            btn[0].style.visibility="visible"
+
+
+                
+            if( seats[i].style.filter =='grayscale(100%)'){
+                seats[i].style.filter ="none"
+                count-=190
+                para[0].textContent="₹"+count
+            }
+            else{
+                seats[i].style.filter = 'grayscale(100%)';
+                count+=190
+          para[0].textContent="₹"+count
+       
+            }
+        
+         
+
+          
+
+           
+
+          
+
+        
+
+
+
+         
+        })
+    
+    }
+
+
+   
+    </script>
+    
+     
+             
+     
+    
+
+</body>
+</html>
